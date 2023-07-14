@@ -15,6 +15,7 @@ import MyCart from "./Pages/MyCart";
 import ProductDetail from "./Components/commons/ProductDetail";
 import BreadCrumbs from "./Components/commons/BreadCrumbs";
 import Login from "./Auth/Login";
+import ProductGridPage from "./Pages/ProductGridPage";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <Route path="/myCart" element={<MyCart />} />
         <Route path="/category" element={<Category />} />
         <Route path="/productDetail" element={<ProductDetail/>} /> 
+        <Route path="/productGrid" element={<ProductGridPage/>} /> 
+
+
       </Routes> 
       <Footer />
     </div>
