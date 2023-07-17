@@ -11,7 +11,7 @@ export const loginUsers = createAsyncThunk("loginUsers", async (userData) => {
     .post(
       "https://dummyjson.com/auth/login",
       {
-        username: userData.email,
+        username: userData.userName,
         password:userData.password
       },
       {

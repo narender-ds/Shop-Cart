@@ -4,12 +4,12 @@ const initialState = {
   addProducts: [],
 };
 
-export const addToCart = createAsyncThunk("addItem", async (data) => {
+export const addToCart = createAsyncThunk("addItem", async (data, userId) => {
   const response = await axios
     .post(
       "https://dummyjson.com/carts/add",
       {
-        userId: 10,
+        userId: 1,
         products: [
           {
             id: data.id,
@@ -26,7 +26,6 @@ export const addToCart = createAsyncThunk("addItem", async (data) => {
   return response;
 });
 
-
 const AddToCartSlice = createSlice({
   name: "addProducts",
   initialState,
@@ -36,7 +35,6 @@ const AddToCartSlice = createSlice({
         console.log("AddToCartPending", state);
       })
       .addCase(addToCart.fulfilled, (state, action) => {
-        console.log("action.payload", action.payload);
         state.addProducts = action.payload;
         console.log("state.addProducts", state.addProducts.products);
       })

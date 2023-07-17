@@ -1,21 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { loginUsers } from "../Redux/slice/AuthSlice/LoginSlice";
 const Validations = Yup.object({
-  email: Yup.string().min(2).required("Invalid Email").required("Email is Required"),
+  userName: Yup.string()
+    .min(2)
+    .required("Invalid userName")
+    .required("UserName is Required"),
   password: Yup.string().min(8).max(20).required("Password is Required"),
 });
 
 const initialValues = {
-  email: "",
+  userName: "",
   password: "",
 };
 
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
@@ -24,6 +27,9 @@ const Login = () => {
       onSubmit: (value, action) => {
         console.log("value", value);
         dispatch(loginUsers(value));
+        if (value) {
+          navigate("/");
+        }
         action.resetForm();
       },
     });
@@ -51,23 +57,23 @@ const Login = () => {
                   <div className="card-body p-5 shadow-5 text-center">
                     <h2 className="fw-bold mb-5">Login</h2>
                     <form onSubmit={handleSubmit}>
-                      {/* Email input */}
+                      {/* userName input */}
                       <div className="form-outline mb-4">
                         <input
                           type="text"
                           id="form3Example3"
                           className="form-control"
-                          name="email"
-                          value={values.email}
+                          name="userName"
+                          value={values.userName}
                           onChange={handleChange}
                           onBlur={handleBlur}
                         />
                         <label className="form-label" htmlFor="form3Example3">
-                          Email address
+                          user Name
                         </label>
                       </div>
-                      {errors.email && touched.email ? (
-                        <p className="required">{errors.email}</p>
+                      {errors.userName && touched.userName ? (
+                        <p className="required">{errors.userName}</p>
                       ) : (
                         ""
                       )}

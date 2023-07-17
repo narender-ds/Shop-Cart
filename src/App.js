@@ -16,6 +16,7 @@ import ProductDetail from "./Components/commons/ProductDetail";
 import BreadCrumbs from "./Components/commons/BreadCrumbs";
 import Login from "./Auth/Login";
 import ProductGridPage from "./Pages/ProductGridPage";
+import SearchItemPage from "./Pages/SearchItemPage";
 
 function App() {
   return (
@@ -31,6 +32,8 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/productDetail" element={<ProductDetail/>} /> 
         <Route path="/productGrid" element={<ProductGridPage/>} /> 
+        <Route path="/searchItemPage" element={<SearchItemPage/>} /> 
+
 
 
       </Routes> 

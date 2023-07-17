@@ -5,8 +5,7 @@ const initialState = {
   cartProduct: [],
 };
 export const fetchCartProducts = createAsyncThunk("cartProduct", async(id) => {
-    console.log('id', id)
-  const response = await axios.get(`https://dummyjson.com/carts/user/${id}`).then((res) => console.log('res.data', res));
+  const response = await axios.get(`https://dummyjson.com/carts/user/${id}`).then((res) =>  res.data);
   return response;
 });
 

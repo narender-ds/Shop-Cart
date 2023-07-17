@@ -6,6 +6,8 @@ import AddToCartSlice from "./slice/CartSlice/AddToCartSlice"
 import SignUpSlice from "./slice/AuthSlice/SignUpSlice"
 import CategorySlice from "./slice/CartSlice/CategorySlice"
 import FetchCategoryData from "./slice/CartSlice/FetchCategoryData"
+import DeleteCartSlice from "./slice/CartSlice/DeleteCartSlice"
+import SearchProductSlice from "./slice/SearchProductSlice"
 
 export const store =configureStore({
     reducer:{
@@ -15,6 +17,8 @@ export const store =configureStore({
         addProducts:AddToCartSlice,
         cartProduct:GetCartProductSlice,
         category:CategorySlice,
-        categoryData:FetchCategoryData
+        categoryData:FetchCategoryData,
+        deleteCart:DeleteCartSlice,
+        searchProduct:SearchProductSlice
     }
 })

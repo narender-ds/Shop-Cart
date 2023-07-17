@@ -12,7 +12,7 @@ export const addUsers = createAsyncThunk("addUsers", async (userData) => {
       "https://dummyjson.com/users/add",
       {
         firstName: userData.firstname,
-        lastName: userData.lastName,
+        lastName: userData.lastname,
         email: userData.email,
         username: userData.username,
         password: userData.password,

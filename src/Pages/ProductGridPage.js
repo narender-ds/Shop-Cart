@@ -478,7 +478,7 @@ console.log('ProductCategory', ProductCategory)
         {/* content */}
         <div className="col-lg-9">
           <header className="d-sm-flex align-items-center border-bottom mb-4 pb-3">
-            <strong className="d-block py-2">32 Items found </strong>
+            <strong className="d-block py-2">{ProductCategory.total} Items found </strong>
             <div className="ms-auto">
               <select className="form-select d-inline-block w-auto border pt-1">
                 <option value={0}>Best match</option>
@@ -497,7 +497,7 @@ console.log('ProductCategory', ProductCategory)
             </div>
           </header>
           <div className="row">
-             
+
             {ProductCategory?.products?.map((item,index)=>{
                 return(
                     <div className="col-lg-4 col-md-6 col-sm-6 d-flex">

@@ -1,6 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
+import { fetchSearchProducts } from "../../Redux/slice/SearchProductSlice";
 const Header = () => {
+  const navigate=useNavigate()
+  const dispatch=useDispatch()
+  const [inputValue,setInputValue]=useState("")
   return (
     <>
       <header>
@@ -49,12 +54,12 @@ const Header = () => {
               <div className="col-lg-5 col-md-12 col-12">
                 <div className="input-group float-center">
                   <div className="form-outline">
-                    <input type="search" id="form1" className="form-control" />
+                    <input type="search" id="form1" className="form-control" onChange={(e)=>setInputValue(e.target.value)}/>
                     <label className="form-label" htmlFor="form1">
                       Search
                     </label>
                   </div>
-                  <button type="button" className="btn btn-primary shadow-0">
+                  <button type="button" className="btn btn-primary shadow-0" onClick={()=>dispatch(fetchSearchProducts(inputValue),navigate("/searchItemPage") )}>
                     <i className="fas fa-search" />
                   </button>
                 </div>
